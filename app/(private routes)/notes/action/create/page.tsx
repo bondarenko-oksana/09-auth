@@ -2,13 +2,15 @@ import NoteForm from '@/components/NoteForm/NoteForm';
 import css from '@/components/Home/Home.module.css'; 
 import type { Metadata } from 'next';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export const metadata: Metadata = {
   title: 'Create note — NoteHub',
   description: 'Create a new note in NoteHub. Save drafts automatically while typing.',
   openGraph: {
     title: 'Create note — NoteHub',
     description: 'Create a new note in NoteHub. Save drafts automatically while typing.',
-    url: 'https://notehub.com/notes/action/create',
+    url: `${BASE_URL}/notes/action/create`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

@@ -1,11 +1,12 @@
 import NoteDetailsClient from './NoteDetails.client';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from '@/lib/api/serverApi';
 import type { Metadata } from 'next';
 
 interface Params {
   id: string;
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   try {
     const note = await fetchNoteById(params.id);
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       openGraph: {
         title: `${note.title} — NoteHub`,
         description: note.content ? note.content.slice(0, 160) : `Details for note ${note.title}`,
-        url: `https://notehub.com/notes/${params.id}`,
+        url: `${BASE_URL}/notes/${params.id}`,
         siteName: 'NoteHub',
         images: [
           {
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       openGraph: {
         title: 'Note details — NoteHub',
         description: 'Note details page',
-        url: `https://notehub.com/notes/${params.id}`,
+        url: `${BASE_URL}/notes/${params.id}`,
       },
     };
   }

@@ -1,13 +1,15 @@
 import css from '../components/Home/Home.module.css';
 import type { Metadata } from 'next';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export const metadata: Metadata = {
   title: '404 — Page not found — NoteHub',
   description: 'The requested page was not found in NoteHub.',
   openGraph: {
     title: '404 — Page not found — NoteHub',
     description: 'The requested page was not found in NoteHub.',
-    url: 'https://your-site.example/404',
+    url: `${BASE_URL}/404`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

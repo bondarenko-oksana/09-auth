@@ -5,12 +5,12 @@ import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
-import { fetchNotes } from '../../../../lib/api';
-import type { FetchNotesParams, FetchNotesResponse } from '../../../../lib/api';
-import SearchBox from '../../../../components/SearchBox/SearchBox';
-import Pagination from '../../../../components/Pagination/Pagination';
-import NoteList from '../../../../components/NoteList/NoteList';
-import Loader from '../../../../components/Loader/Loader';
+import { fetchNotes } from '../../../../../lib/api/clientApi';
+import type { FetchNotesParams, FetchNotesResponse } from '../../../../../lib/api/clientApi';
+import SearchBox from '../../../../../components/SearchBox/SearchBox';
+import Pagination from '../../../../../components/Pagination/Pagination';
+import NoteList from '../../../../../components/NoteList/NoteList';
+import Loader from '../../../../../components/Loader/Loader';
 import css from '../../../../components/NotesPage/NotesPage.module.css';
 export const NOTES_QUERY_KEY = 'notes';
 interface NotesClientProps {
